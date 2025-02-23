@@ -1,0 +1,1 @@
+A partir do pdf da fatura do cartão de crédito Santander, exporta o Detalhamento da Fatura para um arquivo csv. As informações extraídas são: Data, Descrição, Parcela e R$. É considerado apenas o Total Despesas/Débitos no Brasil.
