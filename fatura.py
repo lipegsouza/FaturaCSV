@@ -27,8 +27,8 @@ def extract_details(text, keyword="Detalhamento da Fatura"):
     details_text = details_text[end_index:]
 
     pattern = re.compile(
-        r'(\d{2}/\d{2})\s([A-Za-z\s.\-0-9*#@&!+=~_]+)\s*(\d{1,2}/\d{2})?\s([-+]?[0-9]*,?[0-9]+(?:\.[0-9]{'
-        r'1,2})?)')
+        r'(\d{2}/\d{2})\s([A-Za-z\s.\-0-9*#@&!+=~_]+)\s*(\d{2}/\d{2})?\s([-+]?[0-9]*,?[0-9]+(?:\.[0-9]{1,2})?)'
+    )
 
     matches = re.findall(pattern, details_text)
 
@@ -38,8 +38,6 @@ def extract_details(text, keyword="Detalhamento da Fatura"):
         descricao = match[1].strip()
         parcela = match[2] if match[2] else ''
         valor = match[3].replace(',', '.')
-
-        descricao = re.sub(r'\s*[01]$', '', descricao).strip()
 
         try:
             valor_float = float(valor.replace(',', '.'))
